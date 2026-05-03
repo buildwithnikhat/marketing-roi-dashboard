@@ -1,0 +1,38 @@
+# requirements.txt
+# Marketing ROI Dashboard - All Dependencies
+
+# ── Data Collection ───────────────────────────────────
+requests==2.31.0          # HTTP calls to APIs
+beautifulsoup4==4.12.3    # Web scraping (safe method)
+kaggle==1.6.6             # Kaggle dataset download
+selenium==4.18.1          # Browser automation (optional)
+fake-useragent==1.4.0     # Rotate user agents for scraping
+
+# ── Data Processing ───────────────────────────────────
+pandas==2.2.0             # Data manipulation
+numpy==1.26.4             # Numerical operations
+faker==22.0.0             # Generate realistic fake data
+
+# ── Database ──────────────────────────────────────────
+psycopg2-binary==2.9.9    # PostgreSQL connector
+sqlalchemy==2.0.25        # ORM + query builder
+
+# ── API Backend ───────────────────────────────────────
+fastapi==0.109.0          # REST API framework
+uvicorn==0.27.0           # ASGI server
+pydantic==2.6.0           # Data validation
+pydantic-settings==2.1.0  # Settings management
+python-dotenv==1.0.0      # Load .env files
+httpx==0.26.0             # Async HTTP client
+
+# ── Dashboard ─────────────────────────────────────────
+streamlit==1.31.0         # Dashboard framework
+plotly==5.18.0            # Interactive charts
+
+# ── AI Layer ──────────────────────────────────────────
+anthropic==0.18.0         # Claude AI API
+openai==1.12.0            # OpenAI GPT-4 (optional)
+
+# ── Utilities ─────────────────────────────────────────
+python-dateutil==2.8.2    # Date parsing
+openpyxl==3.1.2           # Read Excel files

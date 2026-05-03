@@ -1,0 +1,121 @@
+[
+  {
+    "file": "kaggle",
+    "action": "Fix column names",
+    "detail": "Stripped whitespace from all column names",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.720618"
+  },
+  {
+    "file": "kaggle",
+    "action": "Drop useless columns",
+    "detail": "Removed: ['Z_CostContact', 'Z_Revenue']",
+    "rows_affected": 2240,
+    "timestamp": "2026-05-03T19:28:04.741092"
+  },
+  {
+    "file": "kaggle",
+    "action": "Fix data types",
+    "detail": "Converted 23 columns to numeric",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.787550"
+  },
+  {
+    "file": "kaggle",
+    "action": "Fix date type",
+    "detail": "Dt_Customer converted to datetime",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.791221"
+  },
+  {
+    "file": "kaggle",
+    "action": "Fill missing Income",
+    "detail": "Filled 24 nulls with median: \u20b951,382",
+    "rows_affected": 24,
+    "timestamp": "2026-05-03T19:28:04.793648"
+  },
+  {
+    "file": "kaggle",
+    "action": "Remove impossible ages",
+    "detail": "Removed 3 rows",
+    "rows_affected": 3,
+    "timestamp": "2026-05-03T19:28:04.803604"
+  },
+  {
+    "file": "kaggle",
+    "action": "Create Age column",
+    "detail": "Age = 2024 - Year_Birth",
+    "rows_affected": 2237,
+    "timestamp": "2026-05-03T19:28:04.803763"
+  },
+  {
+    "file": "kaggle",
+    "action": "Create Age_Group",
+    "detail": "Binned Age into 5 groups",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.807741"
+  },
+  {
+    "file": "kaggle",
+    "action": "Create Total_Spending",
+    "detail": "Sum of 6 columns",
+    "rows_affected": 2237,
+    "timestamp": "2026-05-03T19:28:04.809924"
+  },
+  {
+    "file": "kaggle",
+    "action": "Create Total_Campaigns_Accepted",
+    "detail": "Sum of 5 columns",
+    "rows_affected": 2237,
+    "timestamp": "2026-05-03T19:28:04.813985"
+  },
+  {
+    "file": "kaggle",
+    "action": "Create Tenure columns",
+    "detail": "Days and years since joining",
+    "rows_affected": 2237,
+    "timestamp": "2026-05-03T19:28:04.825038"
+  },
+  {
+    "file": "kaggle",
+    "action": "Remove Income outliers",
+    "detail": "Kept \u20b9-13,614 to \u20b9117,418. Removed 8",
+    "rows_affected": 8,
+    "timestamp": "2026-05-03T19:28:04.844486"
+  },
+  {
+    "file": "kaggle",
+    "action": "Standardize Marital_Status",
+    "detail": "Mapped to: Single / Partner",
+    "rows_affected": 2229,
+    "timestamp": "2026-05-03T19:28:04.853485"
+  },
+  {
+    "file": "daily_metrics",
+    "action": "Fix data types",
+    "detail": "Numeric and date columns fixed",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.887591"
+  },
+  {
+    "file": "daily_metrics",
+    "action": "Recalculate CTR and CPC",
+    "detail": "Derived from clean data",
+    "rows_affected": 0,
+    "timestamp": "2026-05-03T19:28:04.889442"
+  },
+  {
+    "file": "campaigns",
+    "action": "Clean complete",
+    "detail": "20 valid campaigns",
+    "rows_affected": 20,
+    "timestamp": "2026-05-03T19:28:04.906229"
+  },
+  {
+    "file": "customers",
+    "action": "Clean complete",
+    "detail": "2179 valid customers",
+    "rows_affected": 2179,
+    "timestamp": "2026-05-03T19:28:04.932197"
+  }
+]

@@ -1,0 +1,21 @@
+campaign_id,campaign_name,channel,campaign_type,product,target_audience,budget_total,start_date,end_date,status,duration_days
+CAMP_1000,Premium Serum - Traffic - Meta Stories,Meta Stories,Lead Generation,Premium Serum,25-34,75289.76,2024-09-29,2024-11-30,Active,62
+CAMP_1001,SPF Bundle - Traffic - Meta Feed,Meta Feed,Brand Awareness,SPF Bundle,45-54,107739.38,2024-06-27,2024-08-29,Completed,63
+CAMP_1002,Anti-Aging Bundle - Conversion - Email,Email,Lead Generation,Premium Serum,45-54,333678.27,2024-07-27,2024-09-06,Completed,41
+CAMP_1003,SPF Bundle - Brand Awareness - Meta Feed,Meta Feed,Conversion,Anti-Aging Bundle,45-54,30899.22,2024-04-05,2024-04-29,Completed,24
+CAMP_1004,Premium Serum - Retargeting - Google Search,Google Search,Traffic,Skincare Basic Kit,45-54,264140.94,2024-01-19,2024-03-27,Active,68
+CAMP_1005,Skincare Basic Kit - Retargeting - Email,Email,Lead Generation,Premium Serum,25-34,376279.07,2024-01-07,2024-03-20,Paused,73
+CAMP_1006,SPF Bundle - Lead Generation - Email,Email,Brand Awareness,Skincare Basic Kit,18-24,93881.74,2024-06-23,2024-07-29,Paused,36
+CAMP_1007,Skincare Basic Kit - Lead Generation - Google Search,Google Search,Retargeting,SPF Bundle,18-24,196720.14,2024-01-06,2024-03-14,Active,68
+CAMP_1008,Premium Serum - Brand Awareness - Email,Email,Lead Generation,Moisturizer,35-44,277280.75,2024-06-30,2024-09-03,Active,65
+CAMP_1009,Skincare Basic Kit - Lead Generation - Meta Feed,Meta Feed,Traffic,Premium Serum,55+,471199.47,2024-04-13,2024-06-26,Active,74
+CAMP_1010,Premium Serum - Retargeting - Google Search,Google Search,Lead Generation,Premium Serum,45-54,81300.61,2024-08-19,2024-09-17,Active,29
+CAMP_1011,Moisturizer - Lead Generation - Email,Email,Retargeting,Skincare Basic Kit,35-44,101116.45,2024-05-21,2024-07-14,Active,54
+CAMP_1012,Skincare Basic Kit - Traffic - Email,Email,Brand Awareness,Anti-Aging Bundle,25-34,194717.39,2024-03-23,2024-05-12,Active,50
+CAMP_1013,Moisturizer - Conversion - YouTube,YouTube,Retargeting,SPF Bundle,18-24,98800.47,2024-06-17,2024-08-21,Active,65
+CAMP_1014,Moisturizer - Lead Generation - Meta Feed,Meta Feed,Retargeting,Premium Serum,35-44,61816.87,2024-03-06,2024-05-10,Active,65
+CAMP_1015,Moisturizer - Retargeting - Google Display,Google Display,Conversion,Skincare Basic Kit,45-54,216343.49,2024-08-11,2024-09-25,Active,45
+CAMP_1016,Anti-Aging Bundle - Retargeting - Google Search,Google Search,Conversion,SPF Bundle,25-34,465617.07,2024-09-26,2024-12-13,Active,78
+CAMP_1017,Moisturizer - Traffic - Meta Stories,Meta Stories,Lead Generation,Anti-Aging Bundle,45-54,342338.8,2024-02-24,2024-04-15,Completed,51
+CAMP_1018,Premium Serum - Conversion - YouTube,YouTube,Retargeting,Premium Serum,35-44,12112.55,2024-03-28,2024-06-06,Active,70
+CAMP_1019,Premium Serum - Lead Generation - SMS,SMS,Retargeting,Moisturizer,25-34,210040.46,2024-08-13,2024-10-03,Active,51
