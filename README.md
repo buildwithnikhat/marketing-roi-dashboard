@@ -93,7 +93,7 @@ cd marketing-roi-dashboard
      6. git add screenshots/ && git commit -m "add: screenshots"
      ════════════════════════════════════════════════════════════ -->
 
-### 🎬 Live Demo
+<!--### 🎬 Live Demo
 ![Live Demo](screenshots/demo.gif)
 
 ### 📊 Dashboard Overview — KPI Cards
@@ -115,7 +115,7 @@ cd marketing-roi-dashboard
 > Download [LICEcap](https://www.cockos.com/licecap/) → drag frame over browser → record 45s walkthrough → save as `screenshots/demo.gif`
 
 ---
-
+-->
 ## 🏗️ System Architecture
 
 ```
