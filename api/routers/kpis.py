@@ -281,10 +281,6 @@ async def get_anomalies(
         2.0, ge=1.0, le=4.0,
         description="Z-score threshold")
 ):
-    """
-    Returns statistically anomalous campaign days.
-    Z-score > 2.0 = unusual performance (good or bad).
-    """
     start = time.time()
     try:
         sql = """
@@ -301,7 +297,7 @@ async def get_anomalies(
                 HAVING COUNT(*) >= 7
             )
             SELECT
-                dm.date,
+                dm.date::text        AS date,
                 dm.campaign_id,
                 c.channel,
                 c.campaign_name,
@@ -322,12 +318,17 @@ async def get_anomalies(
                 ON dm.campaign_id = c.campaign_id
             JOIN stats s
                 ON dm.campaign_id = s.campaign_id
-            WHERE ABS(
+            WHERE s.std_roi > 0
+            AND ABS(
                 ((dm.revenue-dm.spend)
                  /NULLIF(dm.spend,0)*100 - s.avg_roi)
                 /NULLIF(s.std_roi,0)
             ) > :threshold
-            ORDER BY ABS(z_score) DESC
+            ORDER BY ABS(
+                ((dm.revenue-dm.spend)
+                 /NULLIF(dm.spend,0)*100 - s.avg_roi)
+                /NULLIF(s.std_roi,0)
+            ) DESC
             LIMIT 20
         """
         df      = run_query(sql, {'threshold': z_threshold})
@@ -342,3 +343,39 @@ async def get_anomalies(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+# ═══════════════════════════════════════════════════════
+# ENDPOINT 6: AI Query
+# POST /api/v1/ai/query
+# ═══════════════════════════════════════════════════════
+
+from pydantic import BaseModel
+
+class AIQueryRequest(BaseModel):
+    question: str
+
+@router.post("/ai/query")
+async def ai_query(request: AIQueryRequest):
+    import sys
+    import os
+    sys.path.insert(0, '.')
+    
+    from ai.insight_engine import InsightEngine
+
+    if not request.question.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be empty"
+        )
+
+    engine = InsightEngine()
+    result = engine.run(request.question)
+
+    return APIResponse.ok({
+        "question":  result.question,
+        "answer":    result.answer or result.error,
+        "sql_used":  result.sql_generated,
+        "data_rows": result.data_rows,
+        "success":   result.success,
+        "time_ms":   result.time_ms,
+    })
