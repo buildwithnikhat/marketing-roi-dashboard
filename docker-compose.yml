@@ -1,0 +1,68 @@
+version: '3.9'
+
+networks:
+  marketing_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+
+  db:
+    image: postgres:16-alpine
+    container_name: marketing_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       marketing_roi_db
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: 1410
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    ports:
+      - "5433:5432"
+    networks:
+      - marketing_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    container_name: marketing_api
+    restart: unless-stopped
+    environment:
+      DB_HOST:     db
+      DB_PORT:     5432
+      DB_NAME:     marketing_roi_db
+      DB_USER:     postgres
+      DB_PASSWORD: 1410
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    ports:
+      - "8000:8000"
+    networks:
+      - marketing_net
+    depends_on:
+      db:
+        condition: service_healthy
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/dashboard/Dockerfile
+    container_name: marketing_dashboard
+    restart: unless-stopped
+    environment:
+      API_BASE_URL: http://api:8000/api/v1
+    ports:
+      - "8501:8501"
+    networks:
+      - marketing_net
+    depends_on:
+      - api

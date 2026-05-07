@@ -9,31 +9,39 @@ from dashboard.utils.chart_theme import (
 from dashboard.utils.formatters import fmt_inr, fmt_pct
 
 def render_channel_charts(channel_data: list):
-    """Channel ROI bar chart + budget donut."""
+    """Modern channel comparison with gradient bars."""
     if not channel_data:
         st.info("No channel data.")
         return
 
     df = pd.DataFrame(channel_data)
-    df = df.sort_values('roi_pct', ascending=False)
+    df = df.sort_values('roi_pct', ascending=True)
 
-    st.markdown("### 📡 Channel Performance")
+    st.markdown("""
+    <div style="font-family:'Inter',sans-serif;font-size:22px;
+                font-weight:700;color:#FFFFFF;margin:24px 0 16px;">
+        📡 Channel Performance
+    </div>
+    """, unsafe_allow_html=True)
 
-    # ── ROI Bar Chart ─────────────────────────────────
+    # ── Horizontal gradient bar chart ─────────────────
     colors = [
-        COLORS['success'] if r >= 100 else
-        COLORS['warning'] if r >= 0   else
-        COLORS['danger']
-        for r in df['roi_pct'].fillna(0)
+        CHANNEL_COLORS.get(ch, '#635BFF')
+        for ch in df['channel']
     ]
 
     fig = go.Figure(go.Bar(
         x=df['roi_pct'],
         y=df['channel'],
         orientation='h',
-        marker_color=colors,
-        text=[f"{v:.1f}%" for v in df['roi_pct'].fillna(0)],
+        marker=dict(
+            color=colors,
+            opacity=0.9,
+            line=dict(width=0)
+        ),
+        text=[f"  {v:.1f}%" for v in df['roi_pct'].fillna(0)],
         textposition='outside',
+        textfont=dict(color='#FFFFFF', size=13, family='Inter'),
         hovertemplate=(
             "<b>%{y}</b><br>"
             "ROI: %{x:.1f}%<extra></extra>"
@@ -42,58 +50,92 @@ def render_channel_charts(channel_data: list):
 
     fig.add_vline(
         x=0, line_dash="dot",
-        line_color=COLORS['danger'], opacity=0.5
+        line_color='rgba(255,77,79,0.6)',
+        line_width=1.5
     )
 
     fig.update_layout(
-        title="ROI by Channel",
-        showlegend=False
+        title=dict(
+            text="🏆 ROI by Channel — Best to Worst",
+            font=dict(size=16, color='#FFFFFF', family='Inter')
+        ),
+        showlegend=False,
+        xaxis_title="ROI %",
     )
-    apply_theme(fig, height=350)
+    apply_theme(fig, height=380)
     st.plotly_chart(fig, use_container_width=True)
 
-    # ── Two charts side by side ───────────────────────
+    # ── Bottom row: Donut + Table ─────────────────────
     c1, c2 = st.columns(2)
 
-    # Spend share donut
     with c1:
+        df_sorted = df.sort_values('total_spend', ascending=False)
         fig2 = go.Figure(go.Pie(
-            labels=df['channel'],
-            values=df['total_spend'],
-            hole=0.55,
-            marker_colors=[
-                CHANNEL_COLORS.get(ch, COLORS['neutral'])
-                for ch in df['channel']
-            ],
+            labels=df_sorted['channel'],
+            values=df_sorted['total_spend'],
+            hole=0.6,
+            marker=dict(
+                colors=[
+                    CHANNEL_COLORS.get(ch, '#635BFF')
+                    for ch in df_sorted['channel']
+                ],
+                line=dict(color='#0A2540', width=2)
+            ),
             textinfo='label+percent',
+            textfont=dict(color='#FFFFFF', size=11),
             hovertemplate=(
                 "<b>%{label}</b><br>"
                 "Spend: ₹%{value:,.0f}<br>"
                 "%{percent}<extra></extra>"
             )
         ))
-        fig2.update_layout(title="Budget Allocation")
-        apply_theme(fig2, height=320)
+
+        fig2.update_layout(
+            title=dict(
+                text="💰 Budget Allocation",
+                font=dict(size=16, color='#FFFFFF',
+                          family='Inter')
+            ),
+            annotations=[dict(
+                text='Spend<br>Share',
+                x=0.5, y=0.5,
+                font=dict(size=14, color='#FFFFFF',
+                          family='Inter'),
+                showarrow=False
+            )]
+        )
+        apply_theme(fig2, height=380)
         st.plotly_chart(fig2, use_container_width=True)
 
-    # Channel summary table
     with c2:
-        st.markdown("**Channel KPI Summary**")
-        display = df[[
-            'channel', 'total_spend', 'total_revenue',
-            'roi_pct', 'roas'
+        st.markdown("""
+        <div style="font-family:'Inter',sans-serif;
+                    font-size:15px;font-weight:600;
+                    color:#FFFFFF;margin-bottom:12px;">
+            📋 Channel Summary
+        </div>
+        """, unsafe_allow_html=True)
+
+        df_table = df.sort_values(
+            'roi_pct', ascending=False
+        )[[
+            'channel', 'total_spend',
+            'total_revenue', 'roi_pct', 'roas'
         ]].copy()
-        display.columns = [
+
+        df_table.columns = [
             'Channel', 'Spend', 'Revenue', 'ROI %', 'ROAS'
         ]
-        display['Spend']   = display['Spend'].apply(fmt_inr)
-        display['Revenue'] = display['Revenue'].apply(fmt_inr)
-        display['ROI %']   = display['ROI %'].apply(fmt_pct)
-        display['ROAS']    = display['ROAS'].apply(
+        df_table['Spend']   = df_table['Spend'].apply(fmt_inr)
+        df_table['Revenue'] = df_table['Revenue'].apply(fmt_inr)
+        df_table['ROI %']   = df_table['ROI %'].apply(fmt_pct)
+        df_table['ROAS']    = df_table['ROAS'].apply(
             lambda x: f"{x:.2f}x" if x else "—"
         )
+
         st.dataframe(
-            display,
+            df_table,
             use_container_width=True,
-            hide_index=True
+            hide_index=True,
+            height=320
         )
