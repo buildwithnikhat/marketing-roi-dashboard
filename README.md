@@ -76,46 +76,28 @@ cd marketing-roi-dashboard
 
 ---
 
+```md
 ## 📸 Screenshots
-
-<!-- ════════════════════════════════════════════════════════════
-     📌 REPLACE THIS SECTION WITH YOUR ACTUAL SCREENSHOTS
-     
-     HOW TO ADD SCREENSHOTS:
-     1. Run: ./scripts/init.sh
-     2. Open: http://localhost:8501
-     3. Take screenshots:
-        Windows → Win + Shift + S
-        Mac     → Cmd + Shift + 4
-        Linux   → Flameshot or Gnome Screenshot
-     4. Create folder: mkdir screenshots
-     5. Save with these exact filenames
-     6. git add screenshots/ && git commit -m "add: screenshots"
-     ════════════════════════════════════════════════════════════ -->
-
-<!--### 🎬 Live Demo
-![Live Demo](screenshots/demo.gif)
 
 ### 📊 Dashboard Overview — KPI Cards
 ![Dashboard Overview](screenshots/01_dashboard_overview.png)
 
+---
+
 ### 📈 ROI Trend + Spend vs Revenue
 ![Trend Charts](screenshots/02_roi_trend_chart.png)
+
+---
 
 ### 📡 Channel Performance Comparison
 ![Channel Comparison](screenshots/03_channel_comparison.png)
 
-### 🤖 AI Analyst in Action
-![AI Query Demo](screenshots/05_ai_query_demo.png)
+---
 
 ### 🚨 Anomaly Detection Panel
-![Anomaly Detection](screenshots/06_anomaly_detection.png)
+![Anomaly Detection](screenshots/04_anomaly_detection.png)
+```
 
-> **📌 To record your demo.gif (free tool):**
-> Download [LICEcap](https://www.cockos.com/licecap/) → drag frame over browser → record 45s walkthrough → save as `screenshots/demo.gif`
-
----
--->
 ## 🏗️ System Architecture
 
 ```
