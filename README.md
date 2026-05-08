@@ -1,6 +1,6 @@
-<div align="center">
-
+<p align="center">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=7F77DD&height=220&section=header&text=Marketing%20ROI%20Dashboard&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=AI-Powered%20Campaign%20Intelligence%20Platform%20by%20Nikhat%20Shaikh&descAlignY=55&descAlign=50&descSize=18" width="100%"/>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
@@ -35,26 +35,18 @@
   </a>
 </p>
 
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=7F77DD&center=true&vCenter=true&width=700&lines=One+command.+Full+stack.+Real-time+AI+insights.;Ask+your+data+questions+in+plain+English.;From+raw+CSV+to+AI-powered+dashboard+%E2%80%94+end+to+end." alt="Typing SVG"/>
-
-</div>
-
-<br/>
-
 <p align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=7F77DD&center=true&vCenter=true&width=700&lines=One+command.+Full+stack.+Real-time+AI+insights.;Ask+your+data+questions+in+plain+English.;From+raw+CSV+to+AI-powered+dashboard+%E2%80%94+end+to+end." alt="Typing SVG"/>
-
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=7F77DD&center=true&vCenter=true&width=700&lines=One+command.+Full+stack.+Real-time+AI+insights.;Ask+your+data+questions+in+plain+English.;From+raw+CSV+to+AI-powered+dashboard+%E2%80%94+end+to+end." alt="Typing SVG"/>
 </p>
 
 ```bash
 git clone https://github.com/buildwithnikhat/marketing-roi-dashboard.git
-
 cd marketing-roi-dashboard
-
 ./scripts/init.sh
+# 🚀 Dashboard live at http://localhost:8501
+```
+
+---
 
 ## 🎯 The Business Problem I Solved
 
@@ -84,27 +76,15 @@ cd marketing-roi-dashboard
 
 ## 📸 Screenshots
 
-<div align="center">
-
-### 📊 Dashboard Overview — KPI Cards
+<p align="center">
 <img src="screenshots/01_dashboard_overview.png" width="85%" />
-
 <br/><br/>
-
-### 📈 ROI Trend + Spend vs Revenue
 <img src="screenshots/02_roi_trend_chart.png" width="85%" />
-
 <br/><br/>
-
-### 📡 Channel Performance Comparison
 <img src="screenshots/03_channel_comparison.png" width="85%" />
-
 <br/><br/>
-
-### 🚨 Anomaly Detection Panel
 <img src="screenshots/04_anomaly_detection.png" width="85%" />
-
-</div>
+</p>
 
 ---
 
@@ -126,9 +106,9 @@ cd marketing-roi-dashboard
 │  ──────────────        ──────────────         ────────────          │
 │  SQL Views        ──►  FastAPI           ──►  Streamlit Dashboard   │
 │  ROI, CPL, CAC         /api/v1/kpis            KPI Cards            │
-│  ROAS, Anomalies       /api/v1/channels         Plotly Charts        │
-│  Trend Analysis        /api/v1/ai/query         AI Chat Panel        │
-│                        In-memory cache          CSV Export           │
+│  ROAS, Anomalies       /api/v1/channels        Plotly Charts        │
+│  Trend Analysis        /api/v1/ai/query        AI Chat Panel        │
+│                        In-memory cache         CSV Export           │
 │                                                                     │
 │  AI INTELLIGENCE PIPELINE                                           │
 │  ─────────────────────────                                          │
@@ -450,20 +430,15 @@ MIT License — free for personal and commercial use. See `LICENSE` for full tex
 
 ---
 
-<div align="center">
-
-## 👩‍💻 About Me
+<p align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=7F77DD&center=true&vCenter=true&width=700&lines=Hi+%F0%9F%91%8B+I'm+Nikhat+Shaikh;AI+%2F+ML+Engineer+from+India;I+build+real-world+AI+%26+data+systems;Open+to+freelance+%26+full-time+opportunities" alt="Typing SVG"/>
 
 <br/>
 
-**Nikhat Shaikh**
+**Nikhat Shaikh** — *AI / ML Engineer · India*
 
-*AI / ML Engineer · India*
-
-I build end-to-end AI and data systems — from raw data pipelines to
-LLM-powered analytics dashboards — using real industry-grade patterns.
+I build end-to-end AI and data systems — from raw data pipelines to LLM-powered analytics dashboards — using real industry-grade patterns.
 
 <br/>
 
@@ -476,11 +451,7 @@ LLM-powered analytics dashboards — using real industry-grade patterns.
 
 *Open to freelance projects · Full-time roles · Consulting engagements*
 
-</div>
-
----
-
-<div align="center">
+<br/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=7F77DD&height=120&section=footer&animation=fadeIn" width="100%"/>
 
@@ -490,7 +461,7 @@ LLM-powered analytics dashboards — using real industry-grade patterns.
 
 *From raw campaign data to AI-powered business decisions — in one command.*
 
-</div>
+</p>
 
 <!--
 ╔══════════════════════════════════════════════════════════════╗
