@@ -76,7 +76,6 @@ cd marketing-roi-dashboard
 
 ---
 
-```md
 ## 📸 Screenshots
 
 ### 📊 Dashboard Overview — KPI Cards
@@ -96,7 +95,6 @@ cd marketing-roi-dashboard
 
 ### 🚨 Anomaly Detection Panel
 ![Anomaly Detection](screenshots/04_anomaly_detection.png)
-```
 
 ## 🏗️ System Architecture
 
@@ -186,7 +184,7 @@ cd marketing-roi-dashboard
 
 ## 🤖 How the AI Pipeline Works
 
-```
+
 User: "Which channel had the best ROI last month?"
          │
          ▼
