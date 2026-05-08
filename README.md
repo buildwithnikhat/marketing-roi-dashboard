@@ -78,23 +78,28 @@ cd marketing-roi-dashboard
 
 ## 📸 Screenshots
 
-### 📊 Dashboard Overview — KPI Cards
-![Dashboard Overview](screenshots/01_dashboard_overview.png)
+<div align="center">
 
----
+### 📊 Dashboard Overview — KPI Cards
+<img src="screenshots/01_dashboard_overview.png" width="85%" />
+
+<br/><br/>
 
 ### 📈 ROI Trend + Spend vs Revenue
-![Trend Charts](screenshots/02_roi_trend_chart.png)
+<img src="screenshots/02_roi_trend_chart.png" width="85%" />
 
----
+<br/><br/>
 
 ### 📡 Channel Performance Comparison
-![Channel Comparison](screenshots/03_channel_comparison.png)
+<img src="screenshots/03_channel_comparison.png" width="85%" />
 
----
+<br/><br/>
 
 ### 🚨 Anomaly Detection Panel
-![Anomaly Detection](screenshots/04_anomaly_detection.png)
+<img src="screenshots/04_anomaly_detection.png" width="85%" />
+
+</div>
+
 
 ## 🏗️ System Architecture
 
