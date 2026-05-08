@@ -41,7 +41,6 @@
 
 </div>
 
-````md
 <br/>
 
 <p align="center">
@@ -50,27 +49,12 @@
 
 </p>
 
-<table align="center">
-<tr>
-<td align="center">
-
 ```bash
 git clone https://github.com/buildwithnikhat/marketing-roi-dashboard.git
 
 cd marketing-roi-dashboard
 
 ./scripts/init.sh
-````
-
-🚀 Dashboard live at http://localhost:8501
-
-</td>
-</tr>
-</table>
-
-</div>
-```
-
 
 ## 🎯 The Business Problem I Solved
 
