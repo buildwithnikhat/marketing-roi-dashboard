@@ -460,9 +460,6 @@ st.markdown("""
     Built by
     <span style='color:#3B4FCC;font-weight:600'>
         Nikhat Shaikh
-    </span>
-    &nbsp;·&nbsp;
-    Python &nbsp;·&nbsp; FastAPI &nbsp;·&nbsp;
-    PostgreSQL &nbsp;·&nbsp; Streamlit &nbsp;·&nbsp;
+    </span
 </div>
 """, unsafe_allow_html=True)

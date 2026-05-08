@@ -11,7 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY api/      /app/api/
 COPY ai/       /app/ai/
-COPY kpi/      /app/kpi/
 COPY .env      /app/.env
 
 EXPOSE 8000
