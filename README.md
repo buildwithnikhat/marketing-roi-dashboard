@@ -125,8 +125,8 @@ cd marketing-roi-dashboard
 │                                                                     │
 │  AI INTELLIGENCE PIPELINE                                           │
 │  ─────────────────────────                                          │
-│  Question ──► SQL Generator (Claude, temp=0) ──► SQL Validator      │
-│  ──► PostgreSQL Executor ──► Insight Generator (Claude, temp=0.3)   │
+│  Question ──► SQL Generator ──► SQL Validator      │
+│  ──► PostgreSQL Executor ──► Insight Generator (temp=0.3)   │
 │  ──► Business answer in plain English + supporting data             │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -194,7 +194,7 @@ User: "Which channel had the best ROI last month?"
          │
          ▼
 ┌─────────────────────────┐
-│   SQL GENERATOR         │  Claude Sonnet · temperature = 0
+│   SQL GENERATOR         │  temperature = 0
 │   Schema context + NL   │  Deterministic — no creativity in SQL
 │   → precise SQL query   │
 └─────────────────────────┘
@@ -213,7 +213,7 @@ User: "Which channel had the best ROI last month?"
          │
          ▼
 ┌─────────────────────────┐
-│   INSIGHT GENERATOR     │  Claude Sonnet · temperature = 0.3
+│   INSIGHT GENERATOR     │  temperature = 0.3
 │   Data → Business lang  │  Specific numbers + recommendation
 └─────────────────────────┘
          │
@@ -258,7 +258,7 @@ docker-compose --version  # Docker Compose 2+ required
 
 **Step 1 — Clone**
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/marketing-roi-dashboard.git
+git clone https://github.com/buildwithnikhat/marketing-roi-dashboard.git
 cd marketing-roi-dashboard
 ```
 
@@ -303,18 +303,11 @@ marketing-roi-dashboard/
 │   ├── synthetic_data_generator.py
 │   ├── extractor.py
 │   ├── validator.py
-│   ├── transformer.py
 │   ├── loader.py
-│   └── etl_pipeline.py
 │
 ├── 📂 db/                      Database Layer
 │   ├── schema.sql
 │   └── db_setup.py
-│
-├── 📂 kpi/                     SQL KPI Layer
-│   ├── 01_base_views.sql
-│   ├── 02_kpi_views.sql
-│   └── 03_analytical_queries.sql
 │
 ├── 📂 api/                     FastAPI Backend
 │   ├── main.py
@@ -333,14 +326,9 @@ marketing-roi-dashboard/
 │   ├── insight_engine.py
 │   ├── sql_validator.py
 │   ├── sql_executor.py
-│   ├── llm_providers.py
-│   └── prompts/
 │
 ├── 📂 docker/                  Dockerfiles
-├── 📂 scripts/                 init · deploy · backup
 ├── docker-compose.yml
-├── docker-compose.prod.yml
-├── nginx/nginx.conf
 └── .env.example
 ```
 
@@ -357,10 +345,6 @@ docker-compose restart api              # Restart one service
 # Logs
 docker-compose logs -f                  # All services
 docker-compose logs -f api              # API only
-
-# Data
-docker-compose run --rm etl \
-  python ingestion/etl_pipeline.py data/raw    # Run ETL manually
 
 docker-compose exec db \
   psql -U postgres marketing_roi_db            # Open DB shell
@@ -439,20 +423,6 @@ Optimization:
   → "Which product line generates the highest ROAS?"
 ```
 
----
-
-## 🗺️ Roadmap
-
-- [ ] Google Ads API live connector
-- [ ] Meta Ads API live connector
-- [ ] Streaming AI responses (word-by-word output)
-- [ ] Daily KPI email digest via SMTP
-- [ ] PDF report export
-- [ ] Redis caching for horizontal scaling
-- [ ] Multi-tenant / multi-client support
-
----
-
 ## 🤝 Contributing
 
 ```bash
@@ -501,23 +471,12 @@ LLM-powered analytics dashboards — using real industry-grade patterns.
 
 ---
 
-## ⭐ Support This Project
-
-If this helped you learn or saved you time:
-
-- ⭐ **Star this repo** — helps others discover it
-- 🍴 **Fork it** — build your own version
-- 🐛 **Open issues** — bugs, features, questions
-- 📢 **Share on LinkedIn** — tag me, I'll reshare
-
----
-
 <div align="center">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=7F77DD&height=120&section=footer&animation=fadeIn" width="100%"/>
 
 **Built by Nikhat Shaikh · AI / ML Engineer · India**
 
-*Marketing ROI Dashboard · Python · FastAPI · PostgreSQL · Streamlit · Claude AI · Docker*
+*Marketing ROI Dashboard · Python · FastAPI · PostgreSQL · Streamlit · Docker*
 
 *From raw campaign data to AI-powered business decisions — in one command.*
 
@@ -568,7 +527,7 @@ What I built end-to-end:
 🐳 One-command Docker deployment — runs anywhere
 
 Tech I used:
-Python → PostgreSQL → FastAPI → Streamlit → Claude AI → Docker
+Python → PostgreSQL → FastAPI → Streamlit → Docker
 
 Hardest part? The AI safety layer.
 LLMs can generate DROP TABLE commands.
@@ -584,7 +543,7 @@ any AI-generated SQL touches the database. Non-negotiable.
 ✅ NULLIF division guard in every KPI formula
 
 Full source code on GitHub:
-👉 github.com/YOUR_GITHUB_USERNAME/marketing-roi-dashboard
+👉 https://github.com/buildwithnikhat/marketing-roi-dashboard
 
 What would you add to this system next?
 
