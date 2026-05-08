@@ -39,14 +39,14 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=7F77DD&center=true&vCenter=true&width=700&lines=One+command.+Full+stack.+Real-time+AI+insights.;Ask+your+data+questions+in+plain+English.;From+raw+CSV+to+AI-powered+dashboard+%E2%80%94+end+to+end." alt="Typing SVG"/>
 
+</div>
+
 ```bash
 git clone https://github.com/buildwithnikhat/marketing-roi-dashboard.git
 cd marketing-roi-dashboard
 ./scripts/init.sh
 # 🚀 Dashboard live at http://localhost:8501
 ```
-
-</div>
 
 ---
 
